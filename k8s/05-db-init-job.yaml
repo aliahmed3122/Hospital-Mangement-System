@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-init
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: db-init
+        image: mcr.microsoft.com/mssql-tools
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            echo "Waiting for SQL Server to start..."
+            sleep 30
+            echo "Running init script..."
+            /opt/mssql-tools/bin/sqlcmd -S hospital-db -U sa -P ${SA_PASSWORD} -i /init.sql
+        env:
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mssql-secret
+              key: SA_PASSWORD
+        volumeMounts:
+        - name: init-sql-volume
+          mountPath: /init.sql
+          subPath: init.sql
+      volumes:
+      - name: init-sql-volume
+        configMap:
+          name: init-sql-config
