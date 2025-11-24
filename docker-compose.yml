@@ -27,7 +27,7 @@ services:
     volumes:
       - ./init.sql:/init.sql
     command: >
-      /bin/bash -c "sleep 30 && /opt/mssql-tools/bin/sqlcmd -S hospital-db -U sa -P ${DB_PASSWORD} -i /init.sql"
+      /bin/bash -c "sleep 45 && /opt/mssql-tools/bin/sqlcmd -S hospital-db -U sa -P ${DB_PASSWORD} -i /init.sql"
 
   app:
     build:
