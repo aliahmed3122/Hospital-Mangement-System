@@ -7,3 +7,6 @@ HospitalManagementSystem/bin/
 HospitalManagementSystem.Repository/bin/
 HospitalManagementSystem.Services/bin/
 HospitalManagementSystem.Core/bin/
+
+k8s/01-secret.yaml
+k8s/02-configmap.yaml

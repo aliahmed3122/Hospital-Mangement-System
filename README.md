@@ -96,6 +96,24 @@ You should see the Hospital Management System homepage.
 
 ---
 
+### ☸️ 5️⃣ Deploy with Kubernetes (K8s)
+
+The project includes a complete set of **Kubernetes manifests** for deploying the application to a cluster (e.g., Minikube, KinD, or Cloud).
+
+**Key Features:**
+- **🔒 Secrets Management:** Secure handling of database credentials.
+- **📄 ConfigMaps:** Injection of SQL initialization scripts.
+- **💾 Persistent Storage:** Data persistence for SQL Server using PVCs.
+- **🔄 Self-Healing:** Automatic restarts and health checks.
+
+To deploy, navigate to the `k8s/` directory and follow the instructions in the [Kubernetes README](k8s/README.md).
+
+```bash
+kubectl apply -f k8s/
+```
+
+---
+
 ## 🚀 Overview
 
 The **Hospital Management System** is a web-based application built with **.NET 8** and **SQL Server 2022**, designed to streamline hospital operations and improve efficiency.  

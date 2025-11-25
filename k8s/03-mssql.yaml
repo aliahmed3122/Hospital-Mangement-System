@@ -30,7 +30,7 @@ spec:
         env:
         - name: ACCEPT_EULA
           value: "Y"
-        - name: MSSQL_SA_PASSWORD
+        - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mssql-secret
